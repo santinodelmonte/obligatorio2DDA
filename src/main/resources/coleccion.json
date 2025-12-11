@@ -1,0 +1,297 @@
+{
+  "info": {
+    "name": "API Streaming Platform",
+    "_postman_id": "9a1e52bf-5a17-4f8f-9cc5-55c822a01ec1",
+    "description": "Colección Postman para la API de la Plataforma de Streaming.\nIncluye todos los endpoints de Contenidos, Usuarios y Reproducciones.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Contenidos",
+      "item": [
+        {
+          "name": "GET - Listar contenidos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos"]
+            }
+          }
+        },
+        {
+          "name": "POST - Crear contenido",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Matrix\",\n  \"descripcion\": \"Sci-fi\",\n  \"categoria\": \"Acción\",\n  \"duracionMinutos\": 136,\n  \"anioEstreno\": 1999,\n  \"exclusivoPremium\": false,\n  \"precio\": 10.5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos"]
+            }
+          }
+        },
+        {
+          "name": "GET - Obtener contenido por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos", "1"]
+            }
+          }
+        },
+        {
+          "name": "PUT - Modificar contenido",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Matrix Reloaded\",\n  \"descripcion\": \"Sci-fi acción\",\n  \"categoria\": \"Acción\",\n  \"duracionMinutos\": 138,\n  \"anioEstreno\": 2003,\n  \"exclusivoPremium\": false,\n  \"precio\": 12.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE - Eliminar contenido",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET - Contenidos con más de N reproducciones",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos/reproducciones/minimas/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos", "reproducciones", "minimas", "5"]
+            }
+          }
+        },
+        {
+          "name": "GET - Contenidos reproducidos en una fecha",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/contenidos/reproducidos?fecha=2025-12-08",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "contenidos", "reproducidos"],
+              "query": [
+                { "key": "fecha", "value": "2025-12-08" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "POST - Crear usuario estándar",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreCompleto\": \"Juan Pérez\",\n  \"email\": \"juan@example.com\",\n  \"fechaRegistro\": \"2025-12-08\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/estandar",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "estandar"]
+            }
+          }
+        },
+        {
+          "name": "POST - Crear usuario premium",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreCompleto\": \"Ana Gómez\",\n  \"email\": \"ana@example.com\",\n  \"fechaRegistro\": \"2025-12-08\",\n  \"fechaInicioPremium\": \"2025-12-01\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/premium",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "premium"]
+            }
+          }
+        },
+        {
+          "name": "GET - Listar usuarios",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios"]
+            }
+          }
+        },
+        {
+          "name": "GET - Obtener usuario por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        },
+        {
+          "name": "PUT - Modificar usuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreCompleto\": \"Juan Actualizado\",\n  \"email\": \"nuevo@example.com\",\n  \"fechaRegistro\": \"2024-10-05\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        },
+        {
+          "name": "DELETE - Eliminar usuario",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET - Filtrar usuarios",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/usuarios/filtrar?tipo=PREMIUM&desde=2024-01-01&hasta=2024-12-31",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "usuarios", "filtrar"],
+              "query": [
+                { "key": "tipo", "value": "PREMIUM" },
+                { "key": "desde", "value": "2024-01-01" },
+                { "key": "hasta", "value": "2024-12-31" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reproducciones",
+      "item": [
+        {
+          "name": "POST - Registrar reproducción",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuarioId\": 1,\n  \"contenidoId\": 2,\n  \"fechaHora\": \"2025-12-08T15:00:00\",\n  \"duracionReproducidaMinutos\": 30,\n  \"calificacion\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reproducciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reproducciones"]
+            }
+          }
+        },
+        {
+          "name": "GET - Reproducciones por usuario",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/reproducciones/usuario/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reproducciones", "usuario", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET - Promedio calificaciones",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/api/reproducciones/contenidos/2/promedio-calificaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reproducciones", "contenidos", "2", "promedio-calificaciones"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
